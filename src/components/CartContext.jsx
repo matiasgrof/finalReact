@@ -8,19 +8,12 @@ const CartContextProvider = ({ children }) => {
     const [totalCost, setTotalCost] = useState(0);
 
     const pay = () => {
-        
-        // const filterCartList = cartList.filter(item => item.id !== id);
         setCartList([])
-        // cartList.map(item => {
-        //     console.log({item})
-        //     deleteProduct( item.id)
-        // })
     }
     
     const addToCart = (item, quantity) => {
         let costProduct = item.cost * quantity;
         const filterCartList = cartList.filter(dat => dat.id == item.id);
-
         if (!filterCartList.length) {
             setCartList([...cartList, { quantity, ...item, costProduct }]);
         }else{
@@ -29,12 +22,7 @@ const CartContextProvider = ({ children }) => {
             filterData.costProduct = item.cost * filterData.quantity ;
             setCartList(filterCartList);
         }
-
         setTotalCost(totalCost + costProduct);
-
-        // let total = cartList.map(el => el.quantity * el.cost)
-        // setTotalCost(total);
-        // console.log("cartList", cartList);
     }
 
     const deleteProduct = (id) => {

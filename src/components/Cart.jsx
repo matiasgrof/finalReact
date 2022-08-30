@@ -9,12 +9,13 @@ const Cart = () => {
     
     const handleCheckOut = () =>{
         setCheckout(false)
+        context.pay()
     }
 
     return (
         <>
             <br/>
-            <CartContent>
+                <CartContent>
                 {
                     context.cartList.map(item => (
                         checkout ? 
